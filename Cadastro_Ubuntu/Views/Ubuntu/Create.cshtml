@@ -1,0 +1,42 @@
+﻿@model Ubuntu
+@{
+
+    ViewData["Title"] = "Criar Ubuntu";
+}
+
+<div class="text-center">
+
+    <h1 class="display-4">Cadastrar Ubuntu</h1>
+
+</div>
+
+
+<form asp-controller="Ubuntu" asp-action="Create" method="post">
+
+    <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="Text" asp-for="Nome" class="form-control" required placeholder="Digite o Nome do Ubuntu">
+        @Html.ValidationMessageFor(x => x.Nome)
+    </div>
+
+    <div class="form-group">
+        <label for="linguagem">Liguagem de conhecimento</label>
+        <input type="Text" asp-for="Linguagem" class="form-control" required placeholder="Digite uma linguagem de programação">
+        @Html.ValidationMessageFor(x => x.Linguagem)
+    </div>
+
+    <div class="form-group">
+        <label for="nivel">Nivel de conhecimento</label>
+        <input type="Text" asp-for="Nivel" class="form-control" required placeholder="Digite o nivel de conhecimento nessa linguagem">
+        @Html.ValidationMessageFor(x => x.Nivel)
+    </div>
+
+    @*<div class="form-group">
+        <label for="status">Status</label>
+        <input type="Text" asp-for="Status" class="form-control" required placeholder="Digite o nivel de conhecimento nessa linguagem">
+        @Html.ValidationMessageFor(x => x.Nivel)
+    </div>*@
+
+    <button type="submit" class="btn btn-primary btn-block">Salvar</button>
+    <a class="btn btn-secondary btn-block" asp-controller="ubuntu" asp-action="Index" role="button">Voltar</a>
+</form>

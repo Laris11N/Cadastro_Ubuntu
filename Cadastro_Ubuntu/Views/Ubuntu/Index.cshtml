@@ -1,0 +1,70 @@
+﻿@model List<Ubuntu>
+@{
+    ViewData["Title"] = "listagem dos Ubuntus";
+}
+<div class="text-center">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a class="btn btn-success" role="button" asp-controller="Ubuntu" asp-action="Create">Adicionar novo Ubuntu</a>
+    </div>
+
+    <br />
+
+    @if(TempData["MensagemSucesso"] != null)
+    {
+         <div class="alert alert-success" role="alert">
+        <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+        @TempData["MensagemSucesso"]     
+    </div>
+    }
+
+    @if(TempData["MensagemErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+         <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+        @TempData["MensagemErro"]
+    </div>
+    }
+
+    <br/>
+
+    <h1 class="display-4">Listagem de Ubuntus</h1>
+
+     <table id="table-ubuntus" class="display" border="5" style="width:100%">
+        <thead>
+            <tr>
+                <th scope="col">Identificação</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Linguagem</th>
+                <th scope="col">Nivel</th>
+                @*<th scope="col">Status</th>*@
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var ubuntu in Model)
+                {
+                    <tr>
+                        <th scope="row">@ubuntu.Zero@ubuntu.Id </th>
+                        <td>@ubuntu.Nome</td>
+                        <td>@ubuntu.Linguagem</td>
+                        <td>@ubuntu.Nivel</td>
+                        @*<th>@ubuntu.Status</th>*@
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a role="button" class="btn btn-primary" asp-route-id="@ubuntu.Id" asp-controller="Ubuntu" asp-action="Edit">Editar</a>
+                                <a role="button" class="btn btn-danger" asp-route-id="@ubuntu.Id" asp-controller="Ubuntu" asp-action="Delete">Apagar</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr class="odd"><td valign="top" colspan="5">Nenhum ubuntu encontrado</td></tr>
+            }
+        </tbody>
+    </table>
+</div>
+

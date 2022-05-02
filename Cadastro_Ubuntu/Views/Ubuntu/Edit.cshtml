@@ -1,0 +1,41 @@
+﻿@model Ubuntu
+@{
+    ViewData["Title"] = "Editar Ubuntu";
+}
+
+<div class="text-center">
+
+    <h1 class="display-4">Editar Ubuntu</h1>
+
+</div>
+
+
+<form asp-controller="Ubuntu" asp-action="Alterar">
+
+    <input type= "hidden" asp-for="Id"/>
+   <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="Text" asp-for="Nome" class="form-control" placeholder="Digite o Nome do Ubuntu">
+         @Html.ValidationMessageFor(x => x.Nome)
+    </div>
+
+    <div class="form-group">
+        <label for="Linguagem">Liguagem</label>
+        <input type="Text" asp-for="Linguagem" class="form-control" placeholder="Digite uma linguagem de programação">
+         @Html.ValidationMessageFor(x => x.Linguagem)
+    </div>
+
+    <div class="form-group">
+        <label for="Nivel">Nivel de conhecimento</label>
+        <input type="Text" asp-for="Nivel" class="form-control" placeholder="Digite o nivel de conhecimento dessa linguagem">
+         @Html.ValidationMessageFor(x => x.Nivel)
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-block">Alterar</button>
+    <a class="btn btn-secondary btn-block" asp-controller="Ubuntu" asp-action="Index" role="button">Voltar</a>
+</form>
+
+@*<div class="d-grid gap-2">
+        <button class="btn btn-primary" type="button">Alterar</button>
+        <button class="btn btn-secondary"asp-controller="Ubuntu" asp-action="Index" role="button" type="button">Voltar</button>
+    </div>*@
