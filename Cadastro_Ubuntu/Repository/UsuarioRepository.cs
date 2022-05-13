@@ -9,7 +9,7 @@ namespace Cadastro_Ubuntu.Repository
         private readonly _DbContext __DbContext;
         public UsuarioRepository(_DbContext _dbContext)
         {
-            __DbContext = _dbContext;
+            this.__DbContext = _dbContext;
         }
         public UsuarioModel BuscarPorLogin(string login)
         {
@@ -26,7 +26,7 @@ namespace Cadastro_Ubuntu.Repository
 
         public UsuarioModel Adicionar(UsuarioModel usuario)
         {
-           // usuario.DataCadastro = DateTime.Now;
+             usuario.DataCadastro = DateTime.Now;
             //gravar no banco de dados
             __DbContext.Usuarios.Add(usuario);
             __DbContext.SaveChanges();
@@ -39,10 +39,10 @@ namespace Cadastro_Ubuntu.Repository
 
             if (usuarioDb == null) throw new System.Exception("Houve um erro na atualização do usuário!");
 
-            usuarioDb.Nome = usuarioDb.Nome;
-            usuarioDb.Login = usuarioDb.Login;
-            usuarioDb.Email = usuarioDb.Email;
-            usuarioDb.Perfil = usuarioDb.Perfil;
+            usuarioDb.Nome = usuario.Nome;
+            usuarioDb.Login = usuario.Login;
+            usuarioDb.Email = usuario.Email;
+            usuarioDb.Perfil = usuario.Perfil;
             usuarioDb.DataAtualizacao = DateTime.Now;
 
 

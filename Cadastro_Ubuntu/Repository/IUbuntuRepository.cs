@@ -8,6 +8,8 @@ namespace cadastro_ubuntu.repository
         List<Ubuntu> BuscarTodos();
         Ubuntu Adicionar(Ubuntu ubuntu);
         Ubuntu Atualizar(Ubuntu ubuntu);
+       // Ubuntu Visualizar(Ubuntu ubuntu);
         bool Apagar(int id);
+      
     }
 }

@@ -1,6 +1,7 @@
 ﻿//using Cadastro_Ubuntu.Filters;
 using Cadastro_Ubuntu.Models;
 using Microsoft.AspNetCore.Mvc;
+using QRCoder;
 using System.Diagnostics;
 
 namespace Cadastro_Ubuntu.Controllers
@@ -10,6 +11,7 @@ namespace Cadastro_Ubuntu.Controllers
     {
         public IActionResult Index()
         {
+           
             return View();
         }
 

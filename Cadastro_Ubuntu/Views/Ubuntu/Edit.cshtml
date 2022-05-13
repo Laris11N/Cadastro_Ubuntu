@@ -20,15 +20,15 @@
     </div>
 
     <div class="form-group">
-        <label for="Linguagem">Liguagem</label>
-        <input type="Text" asp-for="Linguagem" class="form-control" placeholder="Digite uma linguagem de programação">
-         @Html.ValidationMessageFor(x => x.Linguagem)
+        <label for="Linguagem">Idade</label>
+        <input type="Text" asp-for="Idade" class="form-control" placeholder="Digite sua idade">
+         @Html.ValidationMessageFor(x => x.Idade)
     </div>
 
     <div class="form-group">
-        <label for="Nivel">Nivel de conhecimento</label>
-        <input type="Text" asp-for="Nivel" class="form-control" placeholder="Digite o nivel de conhecimento dessa linguagem">
-         @Html.ValidationMessageFor(x => x.Nivel)
+        <label for="Nivel">Número do Rg</label>
+        <input type="Text" asp-for="Rg" class="form-control" placeholder="Digite o número do Rg">
+         @Html.ValidationMessageFor(x => x.Rg)
     </div>
 
     <button type="submit" class="btn btn-primary btn-block">Alterar</button>

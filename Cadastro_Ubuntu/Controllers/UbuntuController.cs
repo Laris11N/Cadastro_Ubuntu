@@ -1,12 +1,18 @@
-﻿using Cadastro_Ubuntu.Models;
+﻿using cadastro_ubuntu.repository;
+using Cadastro_Ubuntu.Models;
 using Microsoft.AspNetCore.Mvc;
-using cadastro_ubuntu.repository;
-using Cadastro_Ubuntu.Data;
+using System.Net;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
+using QRCoder;
+//using System.Web.Mvc;
 //using Cadastro_Ubuntu.Filters;
 
 namespace CadastroUbuntu.Controllers
 {
-   //[PaginaParaUsuarioLogado]
+    //[PaginaParaUsuarioLogado]
     public class UbuntuController : Controller
     {
         private readonly IUbuntuRepository _ubuntuRepository;
@@ -105,8 +111,39 @@ namespace CadastroUbuntu.Controllers
             }
 
 
+
         }
-    }
+        public IActionResult Details()
+        {
+
+            return View();
+        }
+        public IActionResult _Modal(int id)
+        {
+
+            Ubuntu ubuntu = _ubuntuRepository.ListarPorId(id);
+            return PartialView(ubuntu);
+        }
+
+
+        [HttpPost]
+        public IActionResult _Modal(string id)
+        {
+            QRCodeGenerator qrGenerator = new QRCodeGenerator();
+            QRCodeData qrCodeData = qrGenerator.CreateQrCode(id, QRCodeGenerator.ECCLevel.Q);
+            QRCode qrCode = new QRCode(qrCodeData);
+            Bitmap qrCodeImage = qrCode.GetGraphic(20);
+            return View(BitmapToBytes(qrCodeImage));
+        }
+        private static Byte[] BitmapToBytes(Bitmap img)
+        {
+            using (MemoryStream stream = new MemoryStream())
+            {
+                img.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
+                return stream.ToArray();
+            }
+            }
+        }
 }
 
 

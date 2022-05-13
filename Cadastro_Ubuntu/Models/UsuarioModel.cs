@@ -9,6 +9,7 @@ namespace Cadastro_Ubuntu.Models
 
         [StringLength(200, MinimumLength = 3, ErrorMessage = "O campo Nome deve ter um comprimento mínimo de 3 letras e máximo de 200.")]
         [Required(ErrorMessage = "Digite o nome do usuário")]
+
         public string Nome { get; set; }
 
         [Required(ErrorMessage = "Digite o nome do login")]

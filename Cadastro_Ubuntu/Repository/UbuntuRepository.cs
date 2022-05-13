@@ -34,8 +34,8 @@ namespace Cadastro_Ubuntu.Repository
             if (ubuntuDb == null) throw new System.Exception("Houve um erro na atualização do contato!");
 
             ubuntuDb.Nome = ubuntu.Nome;
-            ubuntuDb.Linguagem = ubuntu.Linguagem;  
-            ubuntuDb.Nivel = ubuntu.Nivel;
+            ubuntuDb.Idade = ubuntu.Idade;  
+            ubuntuDb.Rg = ubuntu.Rg;
 
             __DbContext.ubuntus.Update(ubuntuDb);
             __DbContext.SaveChanges();

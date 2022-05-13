@@ -1,0 +1,25 @@
+﻿@*<fieldset class="fieldset">
+    <legend>Listagem de Segmentos</legend>
+    <div class="row-fluid">
+        <div class="span6">
+            @Html.AntiForgeryToken()
+            <table id="dt" class="dt table table-striped table-bordered"
+                   style="width:100%"
+                   data-url="/Segmento/List"
+                   data-cols="nome,descricao"
+                   data-what="Segmentos KeepTrack"
+                   data-delete-url="/Segmento/Delete"
+                   data-create-url="/Segmento/Create"
+                   data-edit-url="/Segmento/Edit">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Descrição</th>                      
+                        <th data-orderable="false" class="w-110"></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</fieldset>
+<br />*@

@@ -14,13 +14,13 @@
 
 //            if (string.IsNullOrEmpty(sessaoUsuario))
 //            {
-//                context.Result = new RedirectToRouteResult(new RouteValueDictionary { {"controller", "login" }, {"action","Index" } });
+//                context.Result = new RedirectToRouteResult(new RouteValueDictionary { { "controller", "login" }, { "action", "Index" } });
 //            }
 //            else
 //            {
 //                UsuarioModel usuario = JsonConvert.DeserializeObject<UsuarioModel>(sessaoUsuario);
 
-//                if(usuario != null)
+//                if (usuario != null)
 //                {
 //                    context.Result = new RedirectToRouteResult(new RouteValueDictionary { { "controller", "login" }, { "action", "Index" } });
 //                }

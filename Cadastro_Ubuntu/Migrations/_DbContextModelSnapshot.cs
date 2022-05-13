@@ -25,11 +25,7 @@ namespace Cadastro_Ubuntu.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("Linguagem")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Nivel")
+                    b.Property<string>("Idade")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -37,6 +33,10 @@ namespace Cadastro_Ubuntu.Migrations
                         .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("varchar(200)");
+
+                    b.Property<string>("Rg")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
